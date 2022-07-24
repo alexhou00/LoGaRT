@@ -1,0 +1,24 @@
+body{
+    background-color: #ecc6b1;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Book Antiqua', serif;
+}
+
+h3{
+    font-family: 'Book Antiqua', serif;
+}
+
+#msg{
+    font-family: 'Consolas', monospace;
+}
+
+#upload{
+    font-family: 'Noto Serif TC', serif;
+}
+
+#multiFiles{
+    font-family: 'Noto Serif TC', serif;
+}
