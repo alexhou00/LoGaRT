@@ -51,11 +51,15 @@
     </script>
 </head>
 <body>
+    <div lang="en" class="wrapper">
     <h1>LoGaRT Image Classification</h1>
     <h3>Select file to upload</h3>
     <dl>
         <p>
-            <input type="file" id="multiFiles" name="files[]" multiple="multiple" onchange="readURL(this);"/>
+            <label for="multiFiles" class="custom-file-upload">
+                Choose File
+            </label>
+            <input type="file" style="font-family:'Noto Serif TC',serif" id="multiFiles" name="files[]" multiple="multiple" onchange="readURL(this);"/>
             <button id="upload">Predict</button>
             <p><img id="blah" src="#" alt="Select your image" onerror="this.style.display='none'" /></p>
             <h3>Results:</h3>
@@ -63,4 +67,23 @@
         </p>
     </dl>
     <p id="result">{{data}}</p>
+    </div>
+
+    <div lang="de" class="wrapper">
+        <h1>LoGaRT Image Classification</h1>
+        <h3>Datei zum Hochladen auswählen</h3>
+        <dl>
+            <p>
+                <label for="multiFiles" class="custom-file-upload">
+                    Datei auswählen
+                </label>
+                <input type="file" style="font-family:'Noto Serif TC',serif" id="multiFiles" name="files[]" multiple="multiple" onchange="readURL(this);"/>
+                <button id="upload">Vorhersagen</button>
+                <p><img id="blah" src="#" alt="Select your image" onerror="this.style.display='none'" /></p>
+                <h3>Ergebnisse:</h3>
+                <p id="msg"></p>
+            </p>
+        </dl>
+        <p id="result">{{data}}</p>
+    </div>
 </body>
