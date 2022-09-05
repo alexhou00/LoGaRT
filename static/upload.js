@@ -1,28 +1,30 @@
 function readURL(input) {
-if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-    reader.onload = function (e) {
-        var image = new Image();
-        image.src = e.target.result;
-        image.onload = function () {
-            var factor = Math.floor(this.height / 320);
-            var height = this.height/factor;
-            var width = this.width/factor;
-        $('#blah').attr('src', this.src).width(width).height(height);
-        }
-    };
+        reader.onload = function (e) {
+            var image = new Image();
+            image.src = e.target.result;
+            image.onload = function () {
+                var factor = Math.floor(this.height / 320);
+                var height = this.height/factor;
+                var width = this.width/factor;
+            $('#blah').attr('src', this.src).width(width).height(height);
+            }
+        };
 
-    reader.readAsDataURL(input.files[0]);
-    $('#blah').show();
-}
-else {
-    $('#blah').hide();
-}
+        reader.readAsDataURL(input.files[0]);
+        $('#blah').show();
+        var name_ = document.getElementById('multiFiles');
+        document.getElementById("filename-lbl").textContent=name_.files.item(0).name;
+    }
+    else {
+        $('#blah').hide();
+    }
 }
 
 $(document).ready(function() {
-    var known = { en: true, de: true};
+    var known = {en: true};
     var lang  = ((navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage || 'en').substr(0, 2);
     if(!known[lang])
         lang = 'en';

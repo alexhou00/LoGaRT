@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:,">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <title>LoGaRT Image Classification</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -49,41 +49,105 @@
             });
         });
     </script>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Style the table */
+        table {
+        font-family: 'Book Antiqua', serif;
+        border-collapse: collapse;
+        width: 50%;
+        font-size: 2.5vh;
+        }
+        td, th {
+        border: 1px solid #e1e1e1;
+        text-align: left;
+        padding: 4px;
+        }
+
+    </style>
 </head>
 <body>
     <div lang="en" class="wrapper">
-    <h1>LoGaRT Image Classification</h1>
-    <h3>Select file to upload</h3>
-    <dl>
-        <p>
-            <label for="multiFiles" class="custom-file-upload">
-                Choose File
-            </label>
-            <input type="file" style="font-family:'Noto Serif TC',serif" id="multiFiles" name="files[]" multiple="multiple" onchange="readURL(this);"/>
-            <button id="upload">Predict</button>
-            <p><img id="blah" src="#" alt="Select your image" onerror="this.style.display='none'" /></p>
-            <h3>Results:</h3>
-            <p id="msg"></p>
-        </p>
-    </dl>
-    <p id="result">{{data}}</p>
-    </div>
-
-    <div lang="de" class="wrapper">
-        <h1>LoGaRT Image Classification</h1>
-        <h3>Datei zum Hochladen auswählen</h3>
-        <dl>
-            <p>
+        <div class="row">
+            <h1>LoGaRT Image Classification</h1>
+            <div class="column">
+                <h3>Select file to upload</h3>
                 <label for="multiFiles" class="custom-file-upload">
-                    Datei auswählen
+                    Choose File
                 </label>
                 <input type="file" style="font-family:'Noto Serif TC',serif" id="multiFiles" name="files[]" multiple="multiple" onchange="readURL(this);"/>
-                <button id="upload">Vorhersagen</button>
+                <button id="upload">Predict</button>
                 <p><img id="blah" src="#" alt="Select your image" onerror="this.style.display='none'" /></p>
-                <h3>Ergebnisse:</h3>
+                <p id="filename-lbl"></p>
+            </div>
+            <div class="column">
+                <h3>Results:</h3>
                 <p id="msg"></p>
-            </p>
-        </dl>
-        <p id="result">{{data}}</p>
+                <script type="text/javascript">$('#msg').html('<span>(empty)</span>');</script>
+                <!-- <p id="result">{{data}}</p> -->
+                <table class="ex-table">
+                    <tr>
+                        <th>Tag</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td class="tag">0 text</td>
+                        <td>text form</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">1 scenic</td>
+                        <td>scenic map</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">2 city</td>
+                        <td>city map</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">3 admin</td>
+                        <td>administrative map</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">4 star</td>
+                        <td>star map</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">5 photo</td>
+                        <td>photograph</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">6 human</td>
+                        <td>human figures</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">7 object</td>
+                        <td>objects</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">8 bldg</td>
+                        <td>building</td>
+                    </tr>
+                    <tr>
+                        <td class="tag">9 ritual</td>
+                        <td>ritual layout</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </body>

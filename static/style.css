@@ -17,10 +17,12 @@ p{
     font-size: 3vh;
 }
 
+/* Classified Results */
 #msg{
     font-family: 'Consolas', monospace;
 }
 
+/* Buttons */
 .custom-file-upload, #upload{
     border: 1px solid #ccc;
     background-color: #dfdfdf;
@@ -32,11 +34,30 @@ p{
     border-radius: 3px;
 }
 
+/* Shadow on hover */
 .custom-file-upload:hover, #upload:hover {
     transition-duration: 0.4s;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+/* Don't show default file upload button */
 input[type="file"] {
     display: none;
+}
+
+/* Place the Explanation Table in the center */
+.ex-table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tags description in the table */
+.tag{
+    font-family: 'Consolas', monospace;
+}
+
+/* Filename Label */
+#filename-lbl{
+    font-family: 'Book Antiqua', serif;
+    font-size: 2vh;
 }
