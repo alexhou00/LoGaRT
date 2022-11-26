@@ -84,9 +84,9 @@
 </head>
 <body>
     <div lang="en" class="wrapper">
+        <h1>Chinese Local Gazetteers Image Classification Tool</h1>
         <div class="row">
-            <h1>Chinese Local Gazetteers Image Classification Tool</h1>
-            <div class="column">
+            <div class="column" id="left-col">
                 <h3>Upload file</h3>
                 <label for="multiFiles" class="custom-file-upload">
                     Select file
@@ -96,12 +96,12 @@
                 <p><img id="blah" src="#" alt="Select your image" onerror="this.style.display='none'" /></p>
                 <p id="filename-lbl"></p>
             </div>
-            <div class="column">
+            <div class="column" id="right-col">
                 <h3>Results:</h3>
                 <p id="msg"></p>
                 <script type="text/javascript">$('#msg').html('<span>(empty)</span>');</script>
                 <!-- <p id="result">{{data}}</p> -->
-                <table class="ex-table">
+                <table class="ex-table" style="white-space:nowrap;">
                     <tr>
                         <th>Tag</th>
                         <th>Meaning</th>
@@ -141,10 +141,6 @@
                     <tr>
                         <td class="tag">8 bldg</td>
                         <td>building</td>
-                    </tr>
-                    <tr>
-                        <td class="tag">9 ritual</td>
-                        <td>ritual layout</td>
                     </tr>
                 </table>
             </div>

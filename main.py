@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, jsonify
 import os
 import cv2
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from keras.models import load_model
 # import urllib.request
 from werkzeug.utils import secure_filename
@@ -70,7 +70,7 @@ def upload_file():
         # test_label_1 = np.argmax(test_label, axis=1)
 
         display_labels = ['0 text', '1 scenic', '2 city', '3 admin', '4 star',
-                          '5 photo', '6 human', '7 object', '8 building', '9 ritual']
+                          '5 photo', '6 human', '7 object', '8 building']
         for i, j in zip(test_pred_p_arg[0], test_pred_p_sorted[0]):
             if j:
                 string += ((display_labels[i].ljust(10)+(str(j)+'%').rjust(4))+'<br>')\
