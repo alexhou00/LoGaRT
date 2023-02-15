@@ -6,6 +6,7 @@ from keras.models import load_model
 # import urllib.request
 from werkzeug.utils import secure_filename
 import numpy as np
+from time import time
 
 app = Flask(__name__)
 
@@ -40,7 +41,8 @@ def upload_file():
         return resp
 
     files = request.files.getlist('files[]')
-
+    prev = time()
+    
     errors = {}
     success = False
 
@@ -75,14 +77,15 @@ def upload_file():
             if j:
                 string += ((display_labels[i].ljust(10)+(str(j)+'%').rjust(4))+'<br>')\
                             .replace(' ', '&nbsp;')
-
+    if string.endswith('<br>'): string = string[:-4]
     if success and errors:
         errors['message'] = string  # 'File successfully uploaded<br>'+string
         resp = jsonify(errors)
         resp.status_code = 206
         return resp
     if success:
-        resp = jsonify({'message': string})
+        now = time()
+        resp = jsonify({'message': string, 'time':round(now-prev, 3)})
         resp.status_code = 201
         return resp
     else:
